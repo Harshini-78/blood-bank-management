@@ -1,0 +1,133 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+
+<br><br>
+<div class="container">
+
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>A+ <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ A1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>A- <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ A2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>B+ <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ B1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>B- <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ B2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>O+ <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ O1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>O- <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ O2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>AB+ <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ AB1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <h2>AB- <i class="fas fa-tint text-danger"></i></h2><br>
+                    {{ AB2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr><br>
+
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <i class="fas fa-users text-primary fs-4 mb-2"></i><br>
+                    Available Donors <br>
+                    {{ totaldonors }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <i class="fas fa-spinner text-warning fs-4 mb-2"></i><br>
+                    Total Requests <br>
+                    {{ totalrequest }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <i class="fas fa-tint text-danger fs-4 mb-2"></i><br>
+                    Total Blood Unit (ml) <br>
+                    {{ totalbloodunit }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-3">
+            <div class="card bg-light text-center py-4">
+                <div class="card-body">
+                    <i class="far fa-check-circle text-success fs-4 mb-2"></i><br>
+                    Approved Requests <br>
+                    {{ totalapprovedrequest }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<br><br>
+<div class="container">
+    <h4 class="text-center">Blood Request History</h4><br>
+
+    {% if message %}
+        <h5 class="text-center text-danger">{{ message }}</h5><br>
+    {% endif %}
+
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit (ml)</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Stock Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in requests %}
+            <tr>
+                <td>{{ t.patient_name }}</td>
+                <td>{{ t.patient_age }}</td>
+                <td>{{ t.reason }}</td>
+                <td>{{ t.bloodgroup }}</td>
+                <td>{{ t.unit }}</td>
+                <td>{{ t.date }}</td>
+
+                {% if t.status == 'Approved' %}
+                    <td><span class="badge badge-success p-2">Approved</span></td>
+                    <td><span class="badge badge-success p-2">{{ t.unit }} Unit Deducted From Stock</span></td>
+                {% else %}
+                    <td><span class="badge badge-danger p-2">Rejected</span></td>
+                    <td><span class="badge badge-danger p-2">0 Unit Deducted From Stock</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="fa fa-user-plus text-primary" style="font-size: 1.8rem;"></i>
+          </div><br>
+          <div>
+            Request Made <br>
+            {{ requestmade }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="fas fa-sync" style="color: #efb000; font-size: 1.8rem;"></i>
+          </div><br>
+          <div>
+            Pending Request <br>
+            {{ requestpending }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="fas fa-check-circle text-success" style="font-size: 1.8rem;"></i>
+          </div><br>
+          <div>
+            Approved Request<br>
+            {{ requestapproved }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="fas fa-times-circle text-danger" style="font-size: 1.8rem;"></i>
+          </div><br>
+          <div>
+            Rejected Request <br>
+            {{ requestrejected }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

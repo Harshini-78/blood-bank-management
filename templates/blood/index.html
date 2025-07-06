@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .xyz {
+      background-image: url('{% static "image/homepage.webp" %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "blood/navbar.html" %}
+
+  <section class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center text-white xyz">
+    <div class="container text-center"></div>
+  </section>
+
+  <div class="jumbotron text-center mb-0">
+    <p class="lead">Welcome To Blood Bank Management</p>
+    <p>Contact us for further queries</p>
+  </div>
+
+  {% include "blood/footer.html" %}
+
+</body>
+</html>

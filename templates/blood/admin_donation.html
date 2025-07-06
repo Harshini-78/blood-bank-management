@@ -1,0 +1,52 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<br><br>
+<div class="container">
+    <h4 class="text-center mb-4">Blood Donation Details</h4>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th scope="col">Donor's Name</th>
+                <th scope="col">Reason for blood requirement</th>
+                <th scope="col">Age</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in donations %}
+            <tr>
+                <td>{{ t.donor }}</td>
+                <td>{{ t.disease }}</td>
+                <td>{{ t.age }}</td>
+                <td>{{ t.bloodgroup }}</td>
+                <td>{{ t.unit }}</td>
+                <td>{{ t.date }}</td>
+                <td>{{ t.status }}</td>
+                <td>
+                    {% if t.status == 'Pending' %}
+                        <a href="{% url 'approve-donation' t.id %}" class="btn btn-success btn-sm mb-1">
+                            <i class="fa fa-check"></i> Approve
+                        </a>
+                        <a href="{% url 'reject-donation' t.id %}" class="btn btn-danger btn-sm">
+                            <i class="fa fa-times"></i> Reject
+                        </a>
+                    {% elif t.status == 'Approved' %}
+                        <span class="badge badge-success p-2">{{ t.unit }} Unit Added To Stock</span>
+                    {% else %}
+                        <span class="badge badge-danger p-2">0 Unit Added To Stock</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,130 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<br><br>
+<div class="container">
+
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        A+ <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ A1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        A- <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ A2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        B+ <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ B1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        B- <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ B2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        O+ <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ O1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        O- <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ O2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        AB+ <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ AB1.unit }}ml
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h2 class="d-flex justify-content-center align-items-center gap-2">
+                        AB- <i class="fas fa-tint text-danger"></i>
+                    </h2>
+                    <br>{{ AB2.unit }}ml
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr><br>
+    <h3 class="text-center">Update Blood Unit (ml)</h3><br>
+
+    <div class="d-flex justify-content-center mb-5">
+        <form class="row g-3 align-items-center" method="POST">
+            {% csrf_token %}
+            <div class="col-auto">
+                <select name="bloodgroup" class="form-select">
+                    <option disabled selected>Choose a Blood Group</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="number" class="form-control" name="unit" placeholder="*** ml">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Update Stock</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock content %}

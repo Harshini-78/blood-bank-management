@@ -1,0 +1,45 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<br><br>
+<div class="container">
+    <h4 class="text-center">My Blood Request</h4><br>
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" class="text-light">Patient's Name</th>
+                <th scope="col" class="text-light">Age</th>
+                <th scope="col" class="text-light">Reason</th>
+                <th scope="col" class="text-light">Blood Group</th>
+                <th scope="col" class="text-light">Unit</th>
+                <th scope="col" class="text-light">Date</th>
+                <th scope="col" class="text-light">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in blood_request %}
+            <tr>
+                <td>{{ t.patient_name }}</td>
+                <td>{{ t.patient_age }}</td>
+                <td>{{ t.reason }}</td>
+                <td>{{ t.bloodgroup }}</td>
+                <td>{{ t.unit }}</td>
+                <td>{{ t.date }}</td>
+                <td>
+                    {% if t.status == 'Approved' %}
+                        <span class="badge bg-success px-3 py-2 text-white">Approved</span>
+                    {% elif t.status == 'Rejected' %}
+                        <span class="badge bg-danger px-3 py-2 text-white">Rejected</span>
+                    {% else %}
+                        <span class="badge bg-primary px-3 py-2 text-white">Pending</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+<br><br>
+<div class="container">
+    <h4 class="text-center">My Donation History</h4><br>
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" class="text-light">Donor's Age</th>
+                <th scope="col" class="text-light">Disease (if any)</th>
+                <th scope="col" class="text-light">Blood Group</th>
+                <th scope="col" class="text-light">Unit</th>
+                <th scope="col" class="text-light">Date</th>
+                <th scope="col" class="text-light">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in donations %}
+            <tr>
+                <td>{{ t.age }}</td>
+                <td>{{ t.disease }}</td>
+                <td>{{ t.bloodgroup }}</td>
+                <td>{{ t.unit }}</td>
+                <td>{{ t.date }}</td>
+                {% if t.status == 'Approved' %}
+                <td><span class="badge bg-success text-white px-3 py-2">Approved</span></td>
+                {% elif t.status == 'Rejected' %}
+                <td><span class="badge bg-danger text-white px-3 py-2">Rejected</span></td>
+                {% else %}
+                <td><span class="badge bg-primary text-white px-3 py-2">Pending</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
